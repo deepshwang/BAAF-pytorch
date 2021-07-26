@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.8.0-45-generic-x86_64-with-glibc2.29",
+    "python": "3.8.5",
+    "heartbeatAt": "2021-07-25T12:34:54.373407",
+    "startedAt": "2021-07-25T12:34:52.705803",
+    "docker": null,
+    "gpu": "TITAN RTX",
+    "gpu_count": 2,
+    "cpu_count": 48,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/deepshwang/BAAF-pytorch.git",
+        "commit": "0c010f151ca0dffacb1c3a5cef9a87df143bb225"
+    },
+    "email": null,
+    "root": "/ws/baaf-pytorch",
+    "host": "035db6fa3921",
+    "username": "root",
+    "executable": "/usr/local/bin/python"
+}
