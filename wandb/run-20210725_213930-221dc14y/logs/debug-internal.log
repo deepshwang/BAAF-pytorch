@@ -548,3 +548,69 @@
 2021-07-25 21:47:08,814 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
 2021-07-25 21:47:08,815 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
 2021-07-25 21:47:10,815 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:11,779 DEBUG   HandlerThread:13663 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-25 21:47:11,779 DEBUG   SenderThread:13663 [sender.py:send_request():193] send_request: stop_status
+2021-07-25 21:47:12,816 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:14,817 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:16,444 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:16,460 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:16,491 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:16,818 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:16,818 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:18,819 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:20,820 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:22,821 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:24,724 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:24,737 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:24,764 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:24,822 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:24,822 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:26,823 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:27,110 DEBUG   HandlerThread:13663 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-25 21:47:27,110 DEBUG   SenderThread:13663 [sender.py:send_request():193] send_request: stop_status
+2021-07-25 21:47:28,823 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:30,824 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:32,716 DEBUG   SenderThread:13663 [sender.py:send():179] send: stats
+2021-07-25 21:47:32,825 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:32,996 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:33,007 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:33,034 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:33,825 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:34,825 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:36,826 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:38,827 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:40,827 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:41,151 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:41,166 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:41,190 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:41,828 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:42,439 DEBUG   HandlerThread:13663 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-25 21:47:42,439 DEBUG   SenderThread:13663 [sender.py:send_request():193] send_request: stop_status
+2021-07-25 21:47:42,828 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:44,829 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:46,829 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:48,830 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:49,175 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:49,195 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:49,220 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:49,831 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:50,831 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:52,832 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:54,832 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:56,833 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:47:57,283 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:47:57,295 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:47:57,322 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:47:57,767 DEBUG   HandlerThread:13663 [handler.py:handle_request():124] handle_request: stop_status
+2021-07-25 21:47:57,768 DEBUG   SenderThread:13663 [sender.py:send_request():193] send_request: stop_status
+2021-07-25 21:47:57,833 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:47:58,834 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:48:00,834 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:48:02,835 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:48:02,936 DEBUG   SenderThread:13663 [sender.py:send():179] send: stats
+2021-07-25 21:48:04,836 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
+2021-07-25 21:48:05,532 DEBUG   SenderThread:13663 [sender.py:send():179] send: history
+2021-07-25 21:48:05,542 DEBUG   SenderThread:13663 [sender.py:send():179] send: summary
+2021-07-25 21:48:05,570 INFO    SenderThread:13663 [sender.py:_save_file():841] saving file wandb-summary.json with policy end
+2021-07-25 21:48:05,836 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/wandb-summary.json
+2021-07-25 21:48:06,837 INFO    Thread-8  :13663 [dir_watcher.py:_on_file_modified():229] file/dir modified: /ws/baaf-pytorch/wandb/run-20210725_213930-221dc14y/files/output.log
