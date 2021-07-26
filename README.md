@@ -1,6 +1,6 @@
 # BAAF-pytorch
 
-A Pytorch Implementation of "Semantic Segmentation for Real Point Cloud Scenes via Bilateral Augmentation and Adaptive Fusion" \(CVPR'21\) [Original Tensorflow Implementation](https://github.com/ShiQiu0419/BAAF-Net)
+A Pytorch Implementation of "Semantic Segmentation for Real Point Cloud Scenes via Bilateral Augmentation and Adaptive Fusion" \(*Qiu et al.* CVPR'21\) [Original Tensorflow Implementation](https://github.com/ShiQiu0419/BAAF-Net)
 
 
 ## S3DIS
