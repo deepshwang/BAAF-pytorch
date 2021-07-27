@@ -40,12 +40,12 @@ class Trainer():
 		best_oa = 0
 		running_loss = 0
 		for e in range(self.epochs):
-			# Initialize wandb log
+			# # Initialize wandb log
 			if self.config['wandb']:
 				wandb.init(project='baaf-s3dis', config=self.config)
 				wandb.watch(self.model)
 
-			######### TRAIN #########
+			# ######### TRAIN #########
 			self.model.train()
 			for i, (point, label) in enumerate(tqdm(self.train_dataloader, total=len(self.train_dataloader))):
 				point = point.to(self.device)
@@ -58,9 +58,9 @@ class Trainer():
 
 
 				running_loss += loss.item()
-				if (i+1) % 20 == 0:    
-					print('[%d, %5d / %d] loss: %.3f' %
-						(e + 1, i + 1, len(self.train_dataloader) ,running_loss/20))
+				if (i+1) % 20 == 0:     
+					# print('[%d, %5d / %d] loss: %.3f' %
+					# 	(e + 1, i + 1, len(self.train_dataloader) ,running_loss/20))
 					if self.config['wandb']:
 						wandb.log({"Train Batch Loss": running_loss/20})
 
@@ -78,35 +78,40 @@ class Trainer():
 				total_seen_class = [0 for _ in range(self.num_classes)]
 				total_correct_class = [0 for _ in range(self.num_classes)]
 				total_iou_deno_class = [0 for _ in range(self.num_classes)]
-				self.model = self.model.eval()
+				
+				self.model.eval()
 				print("==== Epoch ", e, ' Evaluation =====')
 				for i, (point, label) in tqdm(enumerate(self.test_dataloader), total=len(self.test_dataloader), smoothing=0.9):
+				
+					### Calculate Validation Loss ###
 					point = point.to(self.device)
 					label = label.to(self.device)
-					logits, p_tilde_layers, p_layers = self.model(point[:,:, :3], point[:, :, 3:])				
-					pred_val = logits.contiguous().cpu().numpy()
+					logits, p_tilde_layers, p_layers = self.model(point[:,:, :3], point[:, :, 3:])
 					loss = self.getLoss(logits, p_tilde_layers, p_layers, label)
 					loss_sum += loss.item()
+
+					### Evaluate prediction performance ###
+					pred_val = logits.contiguous().cpu().numpy()
 					pred_val = np.argmax(pred_val, 2)
 					correct = np.sum((pred_val == label))
 					total_correct += correct
 					label = label.contiguous().cpu().numpy()
-					total_seen += (self.config['test']['batch_size'] * self.config['n_points'])
+					total_seen += (point.shape[0] * point.shape[1])
 					tmp, _ = np.histogram(label, range(self.num_classes + 1))
 					labelweights += tmp
 
-					for l in range(self.num_classes):
-						total_seen_class[l] += np.sum((label == l))
-						total_correct_class[l] += np.sum((pred_val == l) & (label == l))
-						total_iou_deno_class[l] += np.sum(((pred_val == l) | (label == l)))
+				for l in range(self.num_classes):
+					total_seen_class[l] += np.sum((label == l))
+					total_correct_class[l] += np.sum((pred_val == l) & (label == l))
+					total_iou_deno_class[l] += np.sum(((pred_val == l) | (label == l)))
 
 				labelweights = labelweights.astype(np.float32) / np.sum(labelweights.astype(np.float32))
+				
+				### Main Evaluation Metrics ###
+				OA = total_correct/float(total_seen)
 				mIoU = np.mean(np.array(total_correct_class) / (np.array(total_iou_deno_class, dtype=np.float) + 1e-6))
-				print('eval mean loss: %f' % (loss_sum / float(num_batches)))
-				print('eval point avg class IoU: %f' % (mIoU))
-				print('eval point accuracy: %f' % (total_correct / float(total_seen)))
-				print('eval point avg class acc: %f' % (
-				    np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
+
+
 
 				iou_per_class_str = '------- IoU --------\n'
 				for l in range(self.num_classes):
@@ -115,27 +120,29 @@ class Trainer():
 					    total_correct_class[l] / float(total_iou_deno_class[l]))
 
 				print(iou_per_class_str)
-				print('Eval mean loss: %f' % (loss_sum / num_batches))
-				print('Eval accuracy: %f' % (total_correct / float(total_seen)))
+				print('Validation Loss: %f' % (loss_sum / float(num_batches)))
+				print('mIoU: %f' % (mIoU))
+				print('Overall Accuracy(OA): %f' % (OA))
 
-				wandb.log({"OA": total_correct/ float(total_seen),
-						  "mIoU": mIoU})
+				if self.config['wandb']:
+					wandb.log({"OA": OA,
+							  "mIoU": mIoU})
+					wandb.log({"Validation Loss": loss_sum / float(num_batches)})
 
-				wandb.log({"Validation Loss", loss_sum / float(num_batches)})
-
-				if mIoU >= best_iou:
-					best_oa = mIoU
-					print('Updated best IoI & saveing model...')
+				if OA >= best_oa:
+					best_oa = OA
+					print('Updated best OA & saveing model...')
 					savepath = os.path.join(self.args.exp_path, 'best_model.pth')
 					print('Saving best model at  %s' % savepath)
 					state = {
 					    'epoch': e,
 					    'class_avg_iou': mIoU,
+					    'OA': best_oa,
 					    'model_state_dict': self.model.state_dict(),
 					}
 					torch.save(state, savepath)
 					print('Saving model....')
-				print('Best mIoU: %f' % best_iou)
+				print('Best OA: %f' % best_oa)
 
 
 
@@ -167,7 +174,8 @@ class Trainer():
 	def _initialize_dataloader(self, split='train'):
 		if split == 'train':
 			dataloader = DataLoader(self.train_dataset, batch_size=self.config['train']['batch_size'],
-									num_workers=self.config['train']['num_workers'])
+									num_workers=self.config['train']['num_workers'],
+									shuffle=True)
 		elif split == 'test':
 			dataloader = DataLoader(self.test_dataset, batch_size=self.config['test']['batch_size'],
 									num_workers=self.config['test']['num_workers'])
@@ -175,15 +183,18 @@ class Trainer():
 	
 	def getLoss(self, logits, p_tilde_layers, p_layers, label):
 		# Cross-entropy loss for semantic classification
+		ce_weight = torch.tensor([3370714, 2856755, 4919229, 318158, 
+								  375640, 478001, 974733, 650464, 
+								  791496, 88727, 1284130, 229758, 2272837]).type(torch.FloatTensor).to(self.device)
 		logits = logits.view(-1, logits.shape[2])
 		label = label.view(-1)
-		loss = torch.nn.functional.cross_entropy(logits, label)
+		loss = torch.nn.functional.cross_entropy(logits, label, ce_weight)
 
 		# Point Augmentation Loss
 		for p_tilde, p, w in zip(p_tilde_layers, p_layers, self.aug_loss_weights):
 			p = torch.unsqueeze(p, dim=2).expand(-1, -1, self.model.k, -1)
-			p_diff = torch.norm(torch.mean(p_tilde-p, dim=2))
-			loss += w * p_diff
+			p_diff = torch.norm(torch.mean(p_tilde-p, dim=2), dim=-1)
+			loss += w * torch.mean(p_diff)
 		return loss
 
 
