@@ -60,7 +60,7 @@ def collect_point_label(anno_path, out_filename, file_format='numpy'):
 
 if __name__ == '__main__':
 	args = argument_parser()
-	config = parse_yaml(args.config_path)
+	config = parse_yaml(os.path.join(args.exp_path, 'config.yaml'))
 	DATA_PATH = config['dataset']['s3dis']['rawdata_root']
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))

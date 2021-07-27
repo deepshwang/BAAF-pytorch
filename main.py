@@ -50,7 +50,7 @@ class Trainer():
 			for i, (point, label) in enumerate(tqdm(self.train_dataloader, total=len(self.train_dataloader))):
 				point = point.to(self.device)
 				label = label.to(self.device)
-				logits, p_tilde_layers, p_layers = self.model(point[:,:, :3], point[:, :, 3:])
+				logits, p_tilde_layers, p_layers = self.model(point[:,:, :3], point[:, :, 3:6])
 				loss = self.getLoss(logits, p_tilde_layers, p_layers, label)
 				self.optimizer.zero_grad()
 				loss.backward()
