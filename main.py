@@ -125,8 +125,8 @@ class Trainer():
 				print('Overall Accuracy(OA): %f' % (OA))
 
 				if self.config['wandb']:
-					wandb.log({"OA": OA,
-							  "mIoU": mIoU})
+					wandb.log({"OA_hist": OA,
+							  "mIoU_hist": mIoU})
 					wandb.log({"Validation Loss": loss_sum / float(num_batches)})
 
 				if OA >= best_oa:
@@ -142,6 +142,10 @@ class Trainer():
 					}
 					torch.save(state, savepath)
 					print('Saving model....')
+
+					if self.config['wandb']:
+						wandb.log({"OA": best_oa,
+								  "mIoU": mIoU})
 				print('Best OA: %f' % best_oa)
 
 
